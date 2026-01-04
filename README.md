@@ -56,7 +56,7 @@ Average Order Value (AOV) was calculated by summing item level revenue and divid
 
 Key Insight:
 
-AOV provides context alonside revenue trends, higher revenue can come from more orders, higher value orders, or both. Tracking AOV over time helps separate changes in order volume from changes in customer spend per order.
+AOV provides context alonside revenue trends, higher revenue can come from more orders, higher value orders, or both. Tracking AOV over time helps separate changes in order volume from changes in customer spend per order. The AOV during the analyzed period was $137.68, providing baseline for understanding overall customer purchasing behavior.
 
 
 
