@@ -27,20 +27,32 @@ Analyzed real-world e-commerce transaction data from a large online marketplace 
 
 📊 Key Business Question: How Does Monthly Revenue Change Over Time?
 
-To evaluate overall sales performance and growth patterns, monthly revenue was calculated by joining order level data with item level pricing and aggregating revenue by purchase month. SQLite date functions were used to extract year and month values from timestamp fields, enabling time based analysis despite dates being stored as text.
+Monthly revenue was calculated by aggregating item-level sales and grouping orders by purchase month. Because dates are stored as TEXT in SQLite, date functions were used to extract year and month values for time-based analysis. Partial months at the start and end of the dataset were excluded to provide a clearer view of overall revenue trends.
 
 
 Key Insight:
 
-Monthly revenue increased steadily throughout 2017, reaching a peak in late 2017 and early 2018, before stabilizing through mid-2018. Partial months at the start and end of the dataset were excluded to prevent skewed results.
+Revenue increased steadily through 2017, peaked in late 2017 and early 2018, and then stabilized through mid-2018, suggesting a period of sustained sales growth followed by normalization.
 
 
 
 
 🧺 Key Business Question: Which Product Categories Generate the Most Revenue?
 
-To identify the primary revenue drivers, item-level sales data was joined with product and category information and aggregated to calculate total revenue by category. Because some product categories lacked translated values, a fallback approach was used to ensure all sales were included in the analysis.
+To understand which products contributes most to overall sales, item-level revenue was aggregated by product category. Some categories contained missing or untranslated values, so a fallback strategy was applied to ensure all transactions wer included in the analysis.
 
 Key Insight:
 
-Revenue is concentrated among a limited number of product categories, with top-performing categories contributing a disproportionate share of total sales. Using fallback category values prevented data loss and ensured a complete and accurate view of category-level performance.
+Revenue is concentrated among a small number of product categories, indicating that a limited set of product types drives a significant portion of total sales. Handling missing category values helped maintain a complete and accurate view of category performance.
+
+
+
+
+
+
+
+**SQLite date functions and fallback logic were used throughout the analysis to account for text-based timestamps and incomplete category data.**
+
+
+
+
