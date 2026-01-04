@@ -49,6 +49,16 @@ Revenue is concentrated among a small number of product categories, indicating t
 
 
 
+💳 Key Business Question: What Is the Average Order Value (AOV)?
+
+Average Order Value (AOV) was calculated by summing item level revenue and dividing by the number of distinct orders. This metric helps estimate how much value each order generates on average and provides a useful baseline for evaluating changes in customer spending over time.
+
+
+Key Insight:
+
+AOV provides context alonside revenue trends, higher revenue can come from more orders, higher value orders, or both. Tracking AOV over time helps separate changes in order volume from changes in customer spend per order.
+
+
 
 
 **SQLite date functions and fallback logic were used throughout the analysis to account for text-based timestamps and incomplete category data.**
