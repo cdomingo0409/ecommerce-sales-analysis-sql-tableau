@@ -21,3 +21,13 @@ Analyzed real-world e-commerce transaction data from a large online marketplace 
 - SQLiteStudio
 - SQL
 - Tableau
+
+
+📊 Key Business Question: How Does Monthly Revenue Change Over Time?
+
+To evaluate overall sales performance and growth patterns, monthly revenue was calculated by joining order level data with item level pricing and aggregating revenue by purchase month. SQLite date functions were used to extract year and month values from timestamp fields, enabling time based analysis despite dates being stored as text.
+
+
+Key Insight:
+
+Monthly revenue increased steadily throughout 2017, reaching a peak in late 2017 and early 2018, before stabilizing through mid-2018. Partial months at the start and end of the dataset were excluded to prevent skewed results.
