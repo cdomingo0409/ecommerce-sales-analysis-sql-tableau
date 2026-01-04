@@ -1,6 +1,8 @@
--- Monthly Revenue Trend Over Time
--- How does montly revenue change over time?
-
+/* ============================================================
+   MONTHLY REVENUE TREND
+   Business Question:
+   How does monthly revenue change over time?
+   ============================================================ */
 /*
 Purpose:
 
@@ -27,5 +29,48 @@ WHERE order_purchase_timestamp IS NOT NULL
   AND order_purchase_timestamp <> ''
 GROUP BY month
 ORDER BY month;
+
+
+
+
+
+/* ============================================================
+   REVENUE BY PRODUCT CATEGORY
+   Business Question:
+   Which product categories generate the most revenue?
+   ============================================================ */
+
+/*
+Purpose:
+
+To identify which product categories generate the highest total revenue.
+Why this approach?:
+- Revenue is calculated at the item level to accurately capture multi-item orders.
+- Product categories are used to group sales and highlight primary revenue drivers.
+- Aggregating by category helps identify areas for merchandising, inventory focus, and strategic invesment.
+- COALESCE is used to handle missing or untranslated category values by providing a fallback to the original category name, ensuring no records are excluded from the analysis.
+
+Design choices:
+- Order items are joined to products to associate each sale with a category
+- LEFT JOIN is used when applicable to prevent losing rows due to missing category mapping
+- Revenue is grouped and ranked by category to surface top performing category.
+- Partial months are exlcuded to ensure results reflect consistent sales activity.
+*/
+
+
+SELECT
+COALESCE (c.product_category_name_english, p.product_category_name) AS category,
+ROUND(SUM(oi.price), 2) as total_revenue
+FROM order_items oi
+JOIN orders o
+ON oi.order_id = o.order_id
+JOIN products p
+ON oi.product_id = p.product_id
+LEFT JOIN product_category c
+ON p.product_category_name = c.product_category_name
+WHERE o.order_purchase_timestamp >= '2017-01-01'
+AND o.order_purchase_timestamp < '2018-09-01'
+GROUP BY category
+ORDER BY total_revenue DESC;
 
 
