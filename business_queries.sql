@@ -135,3 +135,39 @@ WHERE o.order_purchase_timestamp >= '2017-01-01'
 AND o.order_purchase_timestamp <  '2018-09-01'
 GROUP BY state
 ORDER BY total_orders DESC;
+
+
+
+
+
+/*
+Purpose:
+
+To identify which payment methods are most commonly used by customers.
+
+
+Why this approach:
+- Payment type distribution helps identify customer payment preferences.
+- Counting distinct orders ensures each order is only counted once, even if it includes multiple payment records.
+- Records with undfined payment types were excluded to focus the analysis on clearly identified customer payment behavior.
+
+Design Choices:
+- The order_payments table is joined to orders to connect payment information with purchase dates.
+- DISTINCT order counts are used to avoid overcoutning orders split across multiple payment methods.
+- Results are grouped by payment type to allow direct comparison.
+- The same date range is applied to remain consistent with other analyses and avoid partial months.
+*/
+
+
+SELECT
+p.payment_type,
+COUNT(DISTINCT o.order_id) AS total_orders
+FROM orders o
+JOIN order_payments p
+ON o.order_id = p.order_id
+WHERE o.order_purchase_timestamp >= '2017-01-01'
+AND o.order_purchase_timestamp <  '2018-09-01'
+AND p.payment_type IS NOT NULL
+AND p.payment_type <> 'not_defined'
+GROUP BY p.payment_type
+ORDER BY total_orders DESC;
