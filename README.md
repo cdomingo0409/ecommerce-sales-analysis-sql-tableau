@@ -23,6 +23,8 @@ Analyzed real-world e-commerce transaction data from a large online marketplace 
 - Tableau
 
 
+
+
 📊 Key Business Question: How Does Monthly Revenue Change Over Time?
 
 To evaluate overall sales performance and growth patterns, monthly revenue was calculated by joining order level data with item level pricing and aggregating revenue by purchase month. SQLite date functions were used to extract year and month values from timestamp fields, enabling time based analysis despite dates being stored as text.
@@ -31,3 +33,14 @@ To evaluate overall sales performance and growth patterns, monthly revenue was c
 Key Insight:
 
 Monthly revenue increased steadily throughout 2017, reaching a peak in late 2017 and early 2018, before stabilizing through mid-2018. Partial months at the start and end of the dataset were excluded to prevent skewed results.
+
+
+
+
+🧺 Key Business Question: Which Product Categories Generate the Most Revenue?
+
+To identify the primary revenue drivers, item-level sales data was joined with product and category information and aggregated to calculate total revenue by category. Because some product categories lacked translated values, a fallback approach was used to ensure all sales were included in the analysis.
+
+Key Insight:
+
+Revenue is concentrated among a limited number of product categories, with top-performing categories contributing a disproportionate share of total sales. Using fallback category values prevented data loss and ensured a complete and accurate view of category-level performance.
