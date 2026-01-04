@@ -76,3 +76,29 @@ GROUP BY category
 ORDER BY total_revenue DESC;
 
 
+
+
+
+/*
+Purpose:
+
+Calculate Average Order Value (AOV) to understand how much revenue an order generates on average.
+
+
+Why this approach:
+- Revenue is calculated at the item level (order_items) because orders can contain multiple products.
+- AOV is computed as total revenue divided by total number of distinct orders.
+
+Design choices:
+- COUNT(DISTINCT order_id) is used to avoid double counting orders with multiple items.
+- The same date range is used as other analyses to keep the results consistent and avoid partial months.
+*/
+
+
+SELECT 
+ROUND(SUM(oi.price)/COUNT(DISTINCT o.order_id),2) AS average_order_value
+FROM orders o
+JOIN order_items oi
+ON o.order_id = oi.order_id
+WHERE o.order_purchase_timestamp >= '2017-01-01'
+AND o.order_purchase_timestamp < '2018-09-01';
