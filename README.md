@@ -18,5 +18,6 @@ Analyzed real-world e-commerce transaction data from a large online marketplace 
 
 **Tools Used:**
 - PostgreSQL
+- SQLiteStudio
 - SQL
 - Tableau
