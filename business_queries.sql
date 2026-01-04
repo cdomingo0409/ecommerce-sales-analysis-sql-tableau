@@ -45,17 +45,18 @@ ORDER BY month;
 Purpose:
 
 To identify which product categories generate the highest total revenue.
+
+
 Why this approach?:
-- Revenue is calculated at the item level to accurately capture multi-item orders.
-- Product categories are used to group sales and highlight primary revenue drivers.
-- Aggregating by category helps identify areas for merchandising, inventory focus, and strategic invesment.
+- Revenue is calculated at the item level to accurately reflect product-level sales.
+- Categories are used to group revenue and highlight the main drivers of overall sales.
 - COALESCE is used to handle missing or untranslated category values by providing a fallback to the original category name, ensuring no records are excluded from the analysis.
 
 Design choices:
 - Order items are joined to products to associate each sale with a category
-- LEFT JOIN is used when applicable to prevent losing rows due to missing category mapping
-- Revenue is grouped and ranked by category to surface top performing category.
-- Partial months are exlcuded to ensure results reflect consistent sales activity.
+- Orders are joined to apply consistent date filters across analyses.
+- Grouping and ranking categories by total revenue helps surface highest performing categories.
+- Partial monghts are excluded to keep results consistent.
 */
 
 
