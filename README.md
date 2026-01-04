@@ -75,6 +75,19 @@ A small number of states accounts for a large share of total orders, indicating 
 
 
 
+💳 Key Business Question: Which Payment Types Are Used Most Frequently?
+
+To understand customer payment behavior, orders were linked to payment records and aggregated by payment type. Distinct orders were counted to avoid inflating results for orders that used split or muliple payment methods.
+
+
+Key Insights:
+
+Customer purchases are dominated by a small number of payment methods, suggesting clear preferences in how customers complete transactions. Understanding these preferences can help prioritize payment support, optimize checkout flows, and inform partnership with payment providers. Records with undefined payment types were excluded to focus the analysis on clearly identified customer payment behavior.
+
+
+
+
+
 **SQLite date functions and fallback logic were used throughout the analysis to account for text-based timestamps and incomplete category data.**
 
 
