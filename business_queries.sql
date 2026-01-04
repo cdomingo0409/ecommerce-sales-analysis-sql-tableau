@@ -7,15 +7,16 @@
 Purpose:
 
 To analyze how montly revenue changes over time using transactional e-commerce data.
+
+
 Why this approach?:
-- SQLite stores date/time values as TEXT rather than a native DATA type.
-- The strftime function is used to extract year and month from timestamps for time-based aggregation.
-- Revenue is calculated at the item level to accrurately reflect multi-item orders.
+- In SQLite, date and time are stored as TEXT rather than a native data type, so the strftime function is used to extract year and month for the time-based analysis.
+- Revenue is calculated at the item level to ensure orders with multiple products are fully captured.
 
 Design choices:
-- Orders and order_items are joined because purchase timestamps and prices reside in separate tables.
-- Monthly grouping (YYYY-MM) provides a balance between trend visibility and data granularity.
-- Partial months at the beginning and end of the dataset are excluded to avoid skewed results.
+- The orders and order_items tables are joined because order dates and pricing detailes live in separate tables.
+- Grouping by month (YYYY-MM) makes overall revenue trends easier to identify without losing too much detail.
+- Partial months at the beginning and end of the dataset are excluded to avoid skewing the trend.
 */
 
 
