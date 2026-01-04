@@ -102,3 +102,36 @@ JOIN order_items oi
 ON o.order_id = oi.order_id
 WHERE o.order_purchase_timestamp >= '2017-01-01'
 AND o.order_purchase_timestamp < '2018-09-01';
+
+
+
+
+
+/*
+Purpose:
+
+Identify which state (Brazil) place the highest number of orders.
+
+
+Why this approach:
+- Order count is used instead of revenue to understand demand volume by location.
+- Customer location data is sourced from customers table
+- Counting distinct orders ensures each order is only counted once, even if it contains multiple items.
+
+Design choices:
+- Orders are joined to customers table to associate each order with a customer's state.
+- Results are grouped by state to compare geographic demand.
+- The same date range is applied to remain consistent with other analyses and avoid partial months.
+*/
+
+
+SELECT
+c.customer_state AS state,
+COUNT(DISTINCT o.order_id) AS total_orders
+FROM orders o
+JOIN customers c
+ON o.customer_id = c.customer_id
+WHERE o.order_purchase_timestamp >= '2017-01-01'
+AND o.order_purchase_timestamp <  '2018-09-01'
+GROUP BY state
+ORDER BY total_orders DESC;
