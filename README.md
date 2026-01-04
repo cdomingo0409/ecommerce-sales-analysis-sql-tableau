@@ -61,6 +61,20 @@ AOV provides context alonside revenue trends, higher revenue can come from more 
 
 
 
+
+🗺️ Key Business Question: Which States Place the Most Orders?
+
+To understand geopgraphic demand, orders were linked to customer location data and aggregated by state. Distinct orders were counted to ensure demand volume was measured accurately without inflating results due to multiple item purchaes.
+
+
+Key Insight:
+
+A small number of states accounts for a large share of total orders, indicating concentrated demand in specific regions. These states represent key markets for customer acquisition, logistics planning, and targeted growth strategies.
+
+
+
+
+
 **SQLite date functions and fallback logic were used throughout the analysis to account for text-based timestamps and incomplete category data.**
 
 
