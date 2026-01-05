@@ -93,3 +93,36 @@ Customer purchases are dominated by a small number of payment methods, suggestin
 
 
 
+
+📊 E-Commerce Sales Performance Dashboard
+
+Analyzed real world e-commerce transaction data to identify revenue trends, customer spending behavior, and regional order distribution. SQL was used to perform the analysis, and results were visualized using an interactive Tableau dashboard.
+
+
+Key Features:
+- Analyzed monthly revenue trends
+- Calculated average order value (AOV) overall and by state
+- Identified top revenue generating product categories
+- Examined order distribution across states
+
+
+Tools Used:
+- SQL (SQLIte)
+- Tableau
+
+
+Dashboard Preview:
+![E-Commerce Dashboard](screenshots/E-Commerce_Dashboard.png)
+
+
+Live Dashboard
+
+👉 https://public.tableau.com/app/profile/carissa.domingo/viz/E-CommerceSalesPerformance_17675924372620/E-CommerceSalesPerformance
+
+
+
+
+
+
+
+
