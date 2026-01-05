@@ -115,7 +115,7 @@ Dashboard Preview:
 ![E-Commerce Dashboard](screenshots/E-Commerce_Dashboard.png)
 
 
-Live Dashboard
+Live Dashboard (Tableau Public):
 
 👉 https://public.tableau.com/app/profile/carissa.domingo/viz/E-CommerceSalesPerformance_17675924372620/E-CommerceSalesPerformance
 
